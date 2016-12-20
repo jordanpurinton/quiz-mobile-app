@@ -1,3 +1,4 @@
+<script src="../../pages/home/home.ts"></script>
 <p><b>Quiz App</b></p>
 <p *ngIf="submitValid" style="color: #ea6153;">Please fill out all details accurately.</p>
 
@@ -6,14 +7,14 @@
   <ion-item>
     <ion-label floating># of Questions </ion-label>
     <ion-select ngModel="quiz.questionLimit" formControlName="questionLimit" name="questionLimit">
-      <ion-option *ngFor="let i of questionNumbers">{{i}}</ion-option>
+      <ion-option *ngFor="let num of questionNumbers">{{num}}</ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label floating >Category</ion-label>
     <ion-select formControlName="category" name="category">
-      <ion-option>Category 1</ion-option>
+      <ion-option *ngFor="let entry of categoryList">{{entry}}</ion-option>
     </ion-select>
   </ion-item>
 
@@ -38,8 +39,10 @@
     </ion-select>
   </ion-item>
 
+  <br>
+
   <ion-buttons style="display: inline-block">
-    <button ion-button type="submit" (click)="onSubmit()">SUBMIT</button>
+    <button ion-button type="submit" (click)="onSubmit()">Submit</button>
   </ion-buttons>
 
 </form>

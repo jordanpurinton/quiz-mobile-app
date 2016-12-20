@@ -1,19 +1,24 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
-import {ActionSheet} from "ionic-native";
-import {ActionSheetController} from "ionic-angular";
+import {HomePage} from "../../pages/home/home";
 
 @Component({
   selector: 'quiz-input',
   templateUrl: 'quiz-input.html'
 })
 export class QuizInputComponent {
+  @ViewChild('slides') slides: any;
   quizInputForm: FormGroup;
   private formData: any;
-  questionNumbers: Array<number>;
+  questionNumbers: Array<number> = new Array();
+  categoryList: {}
+  homePage: HomePage = new HomePage();
 
   constructor(private builder: FormBuilder) {
-    this.questionNumbers = [1,2,3,4,5,6,7,8,9,10];
+    for (let i = 1; i < 51; i++) {
+      this.questionNumbers.push(i);
+    }
+
     this.quizInputForm = builder.group({
       'questionLimit': '',
       'category': '',
@@ -23,10 +28,11 @@ export class QuizInputComponent {
     })
   }
 
-  onSubmit(data) {
-    console.log('Form data is ', data);
+  public onSubmit(data) {
     this.formData = data;
+    console.log('Form data is ', data);
   }
+
 
 
 
