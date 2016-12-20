@@ -2,6 +2,7 @@ import {Component, Input, ViewChild, PipeTransform, Pipe} from '@angular/core';
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {HomePage} from "../../pages/home/home";
 import {CORE_DIRECTIVES, NgClass, FORM_DIRECTIVES, Control, ControlGroup} from 'angular2/common';
+import {QuizInputService} from "./quiz-input.service";
 
 @Component({
   selector: 'quiz-input',
@@ -21,7 +22,7 @@ export class QuizInputComponent {
 
   homePage: HomePage = new HomePage();
 
-  constructor(private builder: FormBuilder) {
+constructor(private builder: FormBuilder, public quizService: QuizInputService) {
     for (let i = 1; i < 51; i++) {
       this.questionNumbers.push(i);
     }
@@ -66,9 +67,13 @@ export class QuizInputComponent {
     return true;
   }
 
-  public onSubmit(data) {
-    this.formData = data;
-    console.log('Form data is ', data);
+  onSubmit(data) {
+    this.quizService.getQuiz(this.formData)
+      .subscribe(
+        result => console.log(result)
+      );
+
+
   }
 
 

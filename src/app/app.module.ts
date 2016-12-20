@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { QuestionCardComponent } from '../components/question-card/question-card';
 import { Data } from '../providers/data';
 import {QuizInputComponent} from "../components/quiz-input/quiz-input";
+import {QuizInputService} from "../components/quiz-input/quiz-input.service";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,6 @@ import {QuizInputComponent} from "../components/quiz-input/quiz-input";
     QuizApp,
     HomePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Data, QuizInputService]
 })
 export class AppModule {}
