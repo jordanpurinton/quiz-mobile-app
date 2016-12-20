@@ -2,5 +2,7 @@
 Test this out locally
 
 Clone this repo
-npm install
-ionic serve -l
+
+`npm install`
+
+`ionic serve -l`
