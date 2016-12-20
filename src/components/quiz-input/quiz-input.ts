@@ -15,6 +15,8 @@ export class QuizInputComponent {
   private formData: any;
   questionNumbers: Array<number> = new Array();
   categoryList: Array<string> = new Array();
+  difficultyList: Array<string> = new Array();
+  typeList: Array<string> = new Array();
   myDict = new Map();
 
 
@@ -31,15 +33,23 @@ export class QuizInputComponent {
       'Entertainment: Video Games', 'Entertainment: Board Games', 'Science & Nature',
       'Science: Computers', 'Science: Mathematics', 'Mythology', 'Sports', 'Geography',
       'History', 'Politics', 'Art', 'Celebrities', 'Animals', 'Vehicles', 'Entertainment: Comics',
-      'Science: Gadgets', 'Entertainment: Japanese Anime & Manga', 'Entertainment: Cartoon & Animations')
+      'Science: Gadgets', 'Entertainment: Japanese Anime & Manga', 'Entertainment: Cartoon & Animations'
+    );
+
+    this.difficultyList.push(
+      'Any Difficulty', 'Easy', 'Medium', 'Hard'
+    );
+
+    this.typeList.push(
+      'Any Type', 'Multiple Choice', 'True / False'
+    );
 
     this.quizInputForm = builder.group({
       'questionLimit': '',
       'category': '',
       'difficulty': '',
       'type': '',
-      'encoding': ''
-    })
+    });
   }
 
   public onSubmit(data) {

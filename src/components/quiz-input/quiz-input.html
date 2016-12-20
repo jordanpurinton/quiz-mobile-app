@@ -14,28 +14,21 @@
   <ion-item>
     <ion-label floating >Category</ion-label>
     <ion-select formControlName="category" name="category">
-      <ion-option *ngFor="let item of categoryList">{{item}}</ion-option>
+      <ion-option *ngFor="let category of categoryList">{{category}}</ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Difficulty</ion-label>
     <ion-select formControlName="difficulty" name="difficulty">
-      <ion-option>Category 1</ion-option>
+      <ion-option *ngFor="let difficulty of difficultyList">{{difficulty}}</ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Type</ion-label>
     <ion-select formControlName="type" name="type">
-      <ion-option>Category 1</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Encoding</ion-label>
-    <ion-select formControlName="encoding" name="encoding">
-      <ion-option>Category 1</ion-option>
+      <ion-option *ngFor="let type of typeList">{{type}}</ion-option>
     </ion-select>
   </ion-item>
 
