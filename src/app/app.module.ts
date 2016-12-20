@@ -4,12 +4,14 @@ import { QuizApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { QuestionCardComponent } from '../components/question-card/question-card';
 import { Data } from '../providers/data';
+import {QuizInputComponent} from "../components/quiz-input/quiz-input";
 
 @NgModule({
   declarations: [
     QuizApp,
     HomePage,
-    QuestionCardComponent
+    QuestionCardComponent,
+    QuizInputComponent
   ],
   imports: [
     IonicModule.forRoot(QuizApp)

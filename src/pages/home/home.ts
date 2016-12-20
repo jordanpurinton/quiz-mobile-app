@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import { Data } from '../../providers/data';
 
 @Component({
@@ -11,14 +11,20 @@ export class HomePage {
   @ViewChild('slides') slides: any;
 
   slideOptions: any;
+  submitValid: boolean = true; // will leave as true for now, will set to false later
   questionCardFlipped: boolean = false;
 
-  constructor(public navCtrl: NavController, public dataService: Data) {
+  constructor(public navCtrl: NavController, public dataService: Data, public nav: NavController) {
 
     this.slideOptions = {
       onlyExternal: true
     };
+    this.nav = nav;
 
+  }
+
+  nextSlide(){
+    this.slides.slideNext();
   }
 
   ionViewDidLoad() {
@@ -29,4 +35,4 @@ export class HomePage {
     this.questionCardFlipped = true;
   }
 
-}
+  }

@@ -1,0 +1,39 @@
+<p><b>Quiz App</b></p>
+<p *ngIf="submitValid" style="color: #ea6153;">Please fill out all details accurately.</p>
+<ion-list no-lines>
+
+  <form [formGroup]="quizInputForm">
+
+    <ion-item (click)="presentActionSheet()">
+      <ion-icon name="arrow-dropdown-circle" item-right ></ion-icon>
+      <ion-label floating># of Questions </ion-label>
+      <ion-input formControlName="questionNumber" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item (click)="presentActionSheet()">
+      <ion-icon name="arrow-dropdown-circle" item-right ></ion-icon>
+      <ion-label floating >Category</ion-label>
+      <ion-input formControlName="category" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item (click)="presentActionSheet()">
+      <ion-icon name="arrow-dropdown-circle" item-right></ion-icon>
+      <ion-label floating>Difficulty</ion-label>
+      <ion-input formControlName="difficulty" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item (click)="presentActionSheet()">
+      <ion-icon name="arrow-dropdown-circle" item-right></ion-icon>
+      <ion-label floating>Type</ion-label>
+      <ion-input formControlName="type" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item (click)="presentActionSheet()">
+      <ion-icon name="arrow-dropdown-circle" item-right></ion-icon>
+      <ion-label floating>Encoding</ion-label>
+      <ion-input formControlName="encoding" type="text"></ion-input>
+    </ion-item>
+
+  </form>
+
+</ion-list>

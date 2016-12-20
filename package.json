@@ -1,6 +1,6 @@
 {
   "name": "quiz-mobile-app",
-  "author": "Ionic Framework",
+  "author": "Jordan Purinton",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
