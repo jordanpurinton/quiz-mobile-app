@@ -10,6 +10,7 @@ export class QuizApp {
   rootPage = HomePage;
 
   constructor(platform: Platform) {
+
     platform.ready().then(() => {
 
       StatusBar.styleDefault();
