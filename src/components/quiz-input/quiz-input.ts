@@ -22,7 +22,7 @@ export class QuizInputComponent {
 
   homePage: HomePage = new HomePage();
 
-constructor(private builder: FormBuilder, public quizService: QuizInputService) {
+  constructor(private builder: FormBuilder, public quizService: QuizInputService) {
     for (let i = 1; i < 51; i++) {
       this.questionNumbers.push(i);
     }
@@ -41,7 +41,7 @@ constructor(private builder: FormBuilder, public quizService: QuizInputService) 
     );
 
     this.typeList.push(
-      'Any Type', 'Multiple Choice', 'True / False'
+      'Any Type', 'Multiple Choice', 'True/False'
     );
 
     this.quizInputForm = builder.group({
@@ -68,7 +68,33 @@ constructor(private builder: FormBuilder, public quizService: QuizInputService) 
   }
 
   onSubmit(data) {
-    this.quizService.getQuiz(this.formData)
+    let keyValPairs = []; // used to query quiz API from input service
+    this.formData = data; // grab data from input fields
+
+    for (let key in data) {
+      let value = data[key];
+
+      if (value) {
+        keyValPairs.push({
+          key: key,
+          value: value
+        });
+        console.log('found a value! ', keyValPairs)
+      }
+
+      else {
+        keyValPairs.push({
+          key: key,
+          value: ''
+        });
+        console.log('found nuthin! ', keyValPairs)
+      }
+
+    }
+
+    console.log(data);
+
+    this.quizService.getQuiz(keyValPairs) // send array to GET request in service
       .subscribe(
         result => console.log(result)
       );
