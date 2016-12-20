@@ -1,7 +1,6 @@
 {
-  "name": "ionic-hello-world",
+  "name": "quiz-mobile-app",
   "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -46,5 +45,5 @@
       "locator": "ios"
     }
   ],
-  "description": "quiz-app: An Ionic project"
+  "description": "quiz-mobile-app: An Ionic project"
 }

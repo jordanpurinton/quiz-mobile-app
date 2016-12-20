@@ -1,8 +1,10 @@
-<!--
-  Generated template for the QuestionCard component.
-
-  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
-  for more info on Angular 2 Components.
--->
-
-{{text}}
+<div class="flip-container" [class.flipped]="flipCard">
+  <div class="flipper">
+    <div class="front">
+      <ng-content select=".question-card-front"></ng-content>
+    </div>
+    <div class="back">
+      <ng-content select=".question-card-back"></ng-content>
+    </div>
+  </div>
+</div>

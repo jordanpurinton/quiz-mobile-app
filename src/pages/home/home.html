@@ -1,17 +1,26 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-slides #slides [options]="slideOptions">
+    <ion-slide>
+      <h3>Question 1</h3>
+      <question-card [isFlipped]="questionCardFlipped">
+        <div class="flash-card-front"><img src="assets/images/helicopter.png"/></div>
+        <div class="flash-card-back">Helicopter</div>
+      </question-card>
+      <h3>What is this?</h3>
+      <ion-list no-lines radio-group>
+        <ion-item>
+          <ion-label>1. Test</ion-label>
+          <ion-radio (click)="selectAnswer()"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>2. Test 2</ion-label>
+          <ion-radio (click)="selectAnswer()"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>3. Test 3</ion-label>
+          <ion-radio (click)="selectAnswer()"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
