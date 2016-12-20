@@ -1,44 +1,45 @@
 <p><b>Quiz App</b></p>
 <p *ngIf="submitValid" style="color: #ea6153;">Please fill out all details accurately.</p>
-<ion-list no-lines>
 
-  <form [formGroup]="quizInputForm">
+<form [formGroup]="quizInputForm" (ngSubmit)="onSubmit(quizInputForm.value)">
 
-    <ion-item (click)="presentActionSheet()">
-      <ion-label floating># of Questions </ion-label>
-      <ion-select>
-        <ion-option>Category 1</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-item>
+    <ion-label floating># of Questions </ion-label>
+    <ion-select ngModel="quiz.questionLimit" formControlName="questionLimit" name="questionLimit">
+      <ion-option *ngFor="let i of questionNumbers">{{i}}</ion-option>
+    </ion-select>
+  </ion-item>
 
-    <ion-item (click)="presentActionSheet()">
-      <ion-label floating >Category</ion-label>
-      <ion-select>
-        <ion-option>Category 1</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-item>
+    <ion-label floating >Category</ion-label>
+    <ion-select formControlName="category" name="category">
+      <ion-option>Category 1</ion-option>
+    </ion-select>
+  </ion-item>
 
-    <ion-item (click)="presentActionSheet()">
-      <ion-label floating>Difficulty</ion-label>
-      <ion-select>
-        <ion-option>Category 1</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-item>
+    <ion-label floating>Difficulty</ion-label>
+    <ion-select formControlName="difficulty" name="difficulty">
+      <ion-option>Category 1</ion-option>
+    </ion-select>
+  </ion-item>
 
-    <ion-item (click)="presentActionSheet()">
-      <ion-label floating>Type</ion-label>
-      <ion-select>
-        <ion-option>Category 1</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-item>
+    <ion-label floating>Type</ion-label>
+    <ion-select formControlName="type" name="type">
+      <ion-option>Category 1</ion-option>
+    </ion-select>
+  </ion-item>
 
-    <ion-item (click)="presentActionSheet()">
-      <ion-label floating>Encoding</ion-label>
-      <ion-select>
-        <ion-option>Category 1</ion-option>
-      </ion-select>
-    </ion-item>
+  <ion-item>
+    <ion-label floating>Encoding</ion-label>
+    <ion-select formControlName="encoding" name="encoding">
+      <ion-option>Category 1</ion-option>
+    </ion-select>
+  </ion-item>
 
-  </form>
+  <ion-buttons style="display: inline-block">
+    <button ion-button type="submit" (click)="onSubmit()">SUBMIT</button>
+  </ion-buttons>
 
-</ion-list>
+</form>

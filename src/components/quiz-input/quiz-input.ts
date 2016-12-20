@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {FormGroup, FormControl, Validator, Validators} from "@angular/forms";
+import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {ActionSheet} from "ionic-native";
 import {ActionSheetController} from "ionic-angular";
 
@@ -9,45 +9,25 @@ import {ActionSheetController} from "ionic-angular";
 })
 export class QuizInputComponent {
   quizInputForm: FormGroup;
+  private formData: any;
+  questionNumbers: Array<number>;
 
-  constructor(public actionSheetCtrl: ActionSheetController) {
+  constructor(private builder: FormBuilder) {
+    this.questionNumbers = [1,2,3,4,5,6,7,8,9,10];
+    this.quizInputForm = builder.group({
+      'questionLimit': '',
+      'category': '',
+      'difficulty': '',
+      'type': '',
+      'encoding': ''
+    })
   }
 
-  presentActionSheet(category) {
-    let actionSheet = this.actionSheetCtrl.create({
-
-        title: 'Select one of the following:',
-      buttons: [
-        {
-          text: 'Category 1',
-          handler: () => {
-            console.log('Category 1 clicked');
-          }
-        }, {
-          text: 'Category 2',
-          handler: () => {
-            console.log('Category 2 clicked');
-          }
-        }, {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
+  onSubmit(data) {
+    console.log('Form data is ', data);
+    this.formData = data;
   }
 
-    ngOnInit() {
-    this.quizInputForm = new FormGroup({
-      questionNumber: new FormControl(null, Validators.required),
-      category: new FormControl(null, Validators.required),
-      difficulty: new FormControl(null, Validators.required),
-      type: new FormControl(null, Validators.required),
-      encoding: new FormControl(null, Validators.required)
-    });
-  }
+
 
 }
