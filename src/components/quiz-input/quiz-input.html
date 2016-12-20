@@ -1,12 +1,12 @@
 <script src="../../pages/home/home.ts"></script>
 <p><b>Quiz App</b></p>
-<p *ngIf="submitValid" style="color: #ea6153;">Please fill out all details accurately.</p>
+<p *ngIf="!isValid()" style="color: #ea6153;">Please fill out all categories.</p>
 
 <form [formGroup]="quizInputForm" (ngSubmit)="onSubmit(quizInputForm.value)">
 
   <ion-item>
     <ion-label floating># of Questions </ion-label>
-    <ion-select ngModel="quiz.questionLimit" formControlName="questionLimit" name="questionLimit">
+    <ion-select formControlName="questionLimit" name="questionLimit">
       <ion-option *ngFor="let num of questionNumbers">{{num}}</ion-option>
     </ion-select>
   </ion-item>

@@ -17,7 +17,6 @@ export class QuizInputComponent {
   categoryList: Array<string> = new Array();
   difficultyList: Array<string> = new Array();
   typeList: Array<string> = new Array();
-  myDict = new Map();
 
 
   homePage: HomePage = new HomePage();
@@ -50,6 +49,21 @@ export class QuizInputComponent {
       'difficulty': '',
       'type': '',
     });
+  }
+
+  isValid() {
+    let data = this.formData;
+
+    for (let key in data) {
+      let value = data[key];
+      if (!value) {
+        return false;
+      }
+      else {
+      }
+
+    }
+    return true;
   }
 
   public onSubmit(data) {
