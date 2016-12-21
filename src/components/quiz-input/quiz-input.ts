@@ -1,5 +1,5 @@
-import {Component, Input, ViewChild, PipeTransform, Pipe} from '@angular/core';
-import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
+import {Component, ViewChild} from '@angular/core';
+import {FormGroup, FormBuilder} from "@angular/forms";
 import {HomePage} from "../../pages/home/home";
 import {CORE_DIRECTIVES, NgClass, FORM_DIRECTIVES, Control, ControlGroup} from 'angular2/common';
 import {QuizInputService} from "./quiz-input.service";
@@ -23,7 +23,7 @@ export class QuizInputComponent {
   homePage: HomePage = new HomePage();
 
   constructor(private builder: FormBuilder, public quizService: QuizInputService) {
-    for (let i = 1; i < 51; i++) {
+    for (let i = 1; i < 11; i++) {
       this.questionNumbers.push(i);
     }
 
@@ -79,7 +79,7 @@ export class QuizInputComponent {
           key: key,
           value: value
         });
-        console.log('found a value! ', keyValPairs)
+        // console.log('found a value! ', keyValPairs)
       }
 
       else {
@@ -87,7 +87,7 @@ export class QuizInputComponent {
           key: key,
           value: ''
         });
-        console.log('found nuthin! ', keyValPairs)
+        // console.log('found nuthin! ', keyValPairs)
       }
 
     }

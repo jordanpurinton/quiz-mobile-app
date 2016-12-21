@@ -1,8 +1,7 @@
 import {QuizInput} from "./quiz-input.model";
-import {Http, Response, Headers} from "@angular/http";
+import {Http, Response} from "@angular/http";
 import 'rxjs/Rx'; // observable 3rd party library angular 2 uses
-import {Observable} from "rxjs";
-import {Injectable, EventEmitter} from "@angular/core";
+import {Injectable} from "@angular/core";
 
 @Injectable() // needed for http service
 export class QuizInputService {
