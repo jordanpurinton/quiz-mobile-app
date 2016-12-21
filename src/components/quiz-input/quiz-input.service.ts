@@ -15,7 +15,7 @@ export class QuizInputService {
     let category = "";
     let type = "";
     let difficulty = "";
-    let apiUrl = 'https://www.opentdb.com/api.php?amount=';
+    let apiUrl = 'https://opentdb.com/api.php?amount=';
 
     // add values from JSON
     for (let key in data) {
