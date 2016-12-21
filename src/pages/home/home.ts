@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import { Data } from '../../providers/data';
+import {Data} from '../../providers/data';
 export * from "../home/home"
 
 @Component({
@@ -24,16 +24,16 @@ export class HomePage {
 
   }
 
-  nextSlide(){
-      this.slides.slideNext();
+  nextSlide() {
+    this.slides.slideNext();
   }
 
   ionViewDidLoad() {
 
   }
 
-  selectAnswer(){
+  selectAnswer() {
     this.questionCardFlipped = true;
   }
 
-  }
+}

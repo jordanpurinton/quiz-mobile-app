@@ -5,14 +5,14 @@
 <form [formGroup]="quizInputForm" (ngSubmit)="onSubmit(quizInputForm.value)">
 
   <ion-item>
-    <ion-label floating># of Questions </ion-label>
+    <ion-label floating>Number of Questions</ion-label>
     <ion-select formControlName="questionLimit" name="questionLimit">
       <ion-option *ngFor="let num of questionNumbers">{{num}}</ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
-    <ion-label floating >Category</ion-label>
+    <ion-label floating>Category</ion-label>
     <ion-select formControlName="category" name="category">
       <ion-option *ngFor="let category of categoryList">{{category}}</ion-option>
     </ion-select>
@@ -26,7 +26,7 @@
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Type</ion-label>
+    <ion-label floating>Question Type</ion-label>
     <ion-select formControlName="type" name="type">
       <ion-option *ngFor="let type of typeList">{{type}}</ion-option>
     </ion-select>

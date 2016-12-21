@@ -46,7 +46,7 @@ export class QuizInputService {
 
       if (apiQuery[i] != "") {
 
-        if(typeof apiQuery[i] == "number"){
+        if (typeof apiQuery[i] == "number") {
           questionNum = apiQuery[i];
         }
 
@@ -58,18 +58,21 @@ export class QuizInputService {
         //   type = "&category=" + apiQuery[i].toLowerCase();
         // }
 
-        else if (apiQuery[i] == "Multiple Choice" || apiQuery[i] == "True/False"){
-          if(apiQuery[i] == "Multiple Choice") {
+        else if (apiQuery[i] == "Multiple Choice" || apiQuery[i] == "True/False") {
+          if (apiQuery[i] == "Multiple Choice") {
             type = "&type=" + "multiple";
           }
-          else{
+          else {
             type = "&type=" + "boolean"
           }
         }
       }
     }
 
-    return this.http.get(apiUrl + + questionNum + difficulty + type)
+    return this.http.get(apiUrl + +questionNum + difficulty + type)
       .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
   }
 }
