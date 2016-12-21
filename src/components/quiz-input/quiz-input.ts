@@ -92,13 +92,15 @@ export class QuizInputComponent {
 
     }
 
-    console.log(data);
+    // console.log(data);
 
     this.quizService.getQuiz(keyValPairs) // send array to GET request in service
       .subscribe(
-        result => console.log(result)
-      );
-
+        data => {
+          localStorage.setItem("data", JSON.stringify(data)),
+            console.log((JSON.stringify(data)));
+        }
+      )
 
   }
 

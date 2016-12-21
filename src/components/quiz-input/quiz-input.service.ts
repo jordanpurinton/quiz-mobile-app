@@ -15,7 +15,7 @@ export class QuizInputService {
     let category = "";
     let type = "";
     let difficulty = "";
-    let apiUrl = 'https://opentdb.com/api.php?amount=';
+    const APIURL = 'https://opentdb.com/api.php?amount=';
 
     // add values from JSON
     for (let key in data) {
@@ -68,7 +68,7 @@ export class QuizInputService {
       }
     }
 
-    return this.http.get(apiUrl + +questionNum + difficulty + type)
+    return this.http.get(APIURL + questionNum + difficulty + type)
       .map((response: Response) => response.json())
   }
 }
