@@ -98,8 +98,8 @@ export class QuizInputComponent {
       .subscribe(
         data => {
           localStorage.setItem("data", JSON.stringify(data));
-             console.log((JSON.stringify(data)));
-          console.log(data)
+          console.log(data.results);
+          // console.log(data.response_code);
         }
       )
 
