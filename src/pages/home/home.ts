@@ -27,15 +27,11 @@ export class HomePage {
 
   nextSlide() {
     this.slides.slideNext();
+    console.log("Current index is", this.slides.getActiveIndex());
+    console.log(localStorage.getItem('data'))
   }
 
   ionViewDidLoad() {
-
-  }
-
-  onSlideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    console.log("Current index is", currentIndex);
   }
 
   selectAnswer() {

@@ -15,8 +15,4 @@ export class QuestionCardComponent {
   constructor() {
   }
 
-  ionViewDidLoad() {
-      alert(localStorage.getItem('data'))
-    }
-
 }
