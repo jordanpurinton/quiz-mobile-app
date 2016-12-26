@@ -20,9 +20,8 @@ export class QuizInputComponent {
   typeList: Array<string> = new Array();
 
 
-  homePage: HomePage = new HomePage();
 
-  constructor(private builder: FormBuilder, public quizService: QuizInputService) {
+  constructor(private builder: FormBuilder, public quizService: QuizInputService, public homePage: HomePage) {
     for (let i = 1; i < 11; i++) {
       this.questionNumbers.push(i);
     }
@@ -99,7 +98,11 @@ export class QuizInputComponent {
         data => {
           localStorage.setItem("data", JSON.stringify(data));
           console.log(data.results);
-          // console.log(data.response_code);
+          this.homePage.nextSlide();
+        },
+        error => {
+          console.log('Something went wrong. Could not load trivia data.');
+          console.log(error);
         }
       )
 
