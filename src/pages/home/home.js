@@ -27,6 +27,10 @@ var HomePage = (function () {
     };
     HomePage.prototype.ionViewDidLoad = function () {
     };
+    HomePage.prototype.onSlideChanged = function () {
+        var currentIndex = this.slides.getActiveIndex();
+        console.log("Current index is", currentIndex);
+    };
     HomePage.prototype.selectAnswer = function () {
         this.questionCardFlipped = true;
     };

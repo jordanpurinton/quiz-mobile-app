@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, Slides} from 'ionic-angular';
 import {Data} from '../../providers/data';
 export * from "../home/home"
 
@@ -9,13 +9,14 @@ export * from "../home/home"
 })
 export class HomePage {
 
-  @ViewChild('slides') slides: any;
+  @ViewChild('slides') slides: Slides;
 
   slideOptions: any;
   submitValid: boolean = true; // will leave as true for now, will set to false later
   questionCardFlipped: boolean = false;
 
   constructor(public navCtrl?: NavController, public dataService?: Data, public nav?: NavController) {
+
 
     this.slideOptions = {
       onlyExternal: true
@@ -30,6 +31,11 @@ export class HomePage {
 
   ionViewDidLoad() {
 
+  }
+
+  onSlideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    console.log("Current index is", currentIndex);
   }
 
   selectAnswer() {
