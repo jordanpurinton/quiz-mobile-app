@@ -96,12 +96,15 @@ export class QuizInputComponent {
     this.quizService.getQuiz(keyValPairs) // send array to GET request in service
       .subscribe(
         data => {
-          localStorage.setItem("data", (data.results));
           // console.log(data.results);
-          this.homePage.nextSlide();
-          let quizData = localStorage.getItem('data');
-          // console.log(quizData);
-          return quizData;
+          if(data.results != '') {
+            localStorage.setItem("data", (data.results));
+            console.log(data.results);
+            this.homePage.nextSlide();
+            let quizData = localStorage.getItem('data');
+            // console.log(quizData);
+            return quizData;
+          }
         },
         error => {
           console.log('Something went wrong. Could not load trivia data.');
