@@ -3,7 +3,7 @@
     <ion-slide>
       <quiz-input></quiz-input>
     </ion-slide>
-    <ion-slide *ngIf="submitValid">
+    <ion-slide>
       <h3>Question 1</h3>
       <question-card [isFlipped]="questionCardFlipped">
         <div class="question-card-front">Test question?</div>
@@ -23,6 +23,31 @@
           <ion-radio (click)="selectAnswer()"></ion-radio>
         </ion-item>
       </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <h3>Question 2</h3>
+      <question-card [isFlipped]="questionCardFlipped">
+        <div class="question-card-front">Test question 2?</div>
+        <div class="question-card-back">Correct answer 2!</div>
+      </question-card>
+      <ion-list no-lines radio-group>
+        <ion-item>
+          <ion-label>1. 2 Test</ion-label>
+          <ion-radio (click)="selectAnswer()"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>2. 2 Test</ion-label>
+          <ion-radio (click)="selectAnswer()"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>3. 2 Test</ion-label>
+          <ion-radio (click)="selectAnswer()"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <h2>Final Score: {{score}}</h2>
+      <button (click)="restartQuiz()" ion-button full color="primary">Start Again</button>
     </ion-slide>
   </ion-slides>
 </ion-content>

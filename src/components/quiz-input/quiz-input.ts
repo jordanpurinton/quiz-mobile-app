@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder} from "@angular/forms";
 import {HomePage} from "../../pages/home/home";
 import {CORE_DIRECTIVES, NgClass, FORM_DIRECTIVES, Control, ControlGroup} from 'angular2/common';
 import {QuizInputService} from "./quiz-input.service";
+import {Slides} from "ionic-angular";
 
 @Component({
   selector: 'quiz-input',
@@ -11,14 +12,14 @@ import {QuizInputService} from "./quiz-input.service";
 
 
 export class QuizInputComponent {
-  @ViewChild('slides') slides: any;
+  @ViewChild('slides') slides: Slides;
   quizInputForm: FormGroup;
   private formData: any;
   questionNumbers: Array<number> = new Array();
   categoryList: Array<string> = new Array();
   difficultyList: Array<string> = new Array();
   typeList: Array<string> = new Array();
-
+  questions: any;
 
 
   constructor(private builder: FormBuilder, public quizService: QuizInputService, public homePage: HomePage) {
@@ -78,7 +79,6 @@ export class QuizInputComponent {
           key: key,
           value: value
         });
-        // console.log('found a value! ', keyValPairs)
       }
 
       else {
@@ -86,32 +86,26 @@ export class QuizInputComponent {
           key: key,
           value: ''
         });
-        // console.log('found nuthin! ', keyValPairs)
       }
 
     }
 
-    // console.log(data);
-
     this.quizService.getQuiz(keyValPairs) // send array to GET request in service
       .subscribe(
         data => {
-          // console.log(data.results);
-          if(data.results != '') {
-            localStorage.setItem("data", (data.results));
-            console.log(data.results);
+          this.questions = ''; // clear questions
+          if (data.results != '') {
+            // console.log('before', this.questions);
+            this.questions = data.results;
+            console.log('after', this.questions);
             this.homePage.nextSlide();
-            let quizData = localStorage.getItem('data');
-            // console.log(quizData);
-            return quizData;
           }
         },
         error => {
           console.log('Something went wrong. Could not load trivia data.');
           console.log(error);
         }
-      )
-
+      );
   }
 
 

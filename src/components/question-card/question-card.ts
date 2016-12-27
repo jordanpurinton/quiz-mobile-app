@@ -10,7 +10,6 @@ import {Slides} from "ionic-angular";
 export class QuestionCardComponent {
   @Input('isFlipped') flipCard: boolean;
   @ViewChild('slides') slider: Slides;
-  questions: Array<String> = new Array();
 
   constructor() {
   }
