@@ -3,16 +3,20 @@
     <ion-slide>
       <quiz-input></quiz-input>
     </ion-slide>
-    <ion-slide *ngFor="let question of questions">
-      <h3>Question {{score + 1}}</h3>
+    <ion-slide *ngFor="let question of questions; let i = index;">
+      <h3>Question {{i + 1}}</h3>
       <question-card [isFlipped]="questionCardFlipped">
-        <div class="question-card-front">{{question.question}}</div>
-        <div class="question-card-back">{{question.correct_answer}}</div>
+        <div class="question-card-front">{{htmlDecode(question.question)}}</div>
+        <div class="question-card-back">{{htmlDecode(question.correct_answer)}}</div>
       </question-card>
       <ion-list no-lines radio-group>
         <ion-item *ngFor="let answer of question.incorrect_answers">
-          <ion-label>{{answer}}</ion-label>
+          <ion-label>{{htmlDecode(answer)}}</ion-label>
           <ion-radio (click)="selectAnswer(answer, question)" [checked]="answer.selected" [disabled]="hasAnswered"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{htmlDecode(question.correct_answer)}}</ion-label>
+          <ion-radio (click)="selectAnswer(question.correct_answer, question)" [checked]="question.correct_answer.selected" [disabled]="hasAnswered"></ion-radio>
         </ion-item>
       </ion-list>
     </ion-slide>

@@ -5,6 +5,7 @@ import {FormBuilder} from "@angular/forms";
 import {qApi} from "../../providers/qapi";
 export * from "../home/home"
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,7 +21,7 @@ export class HomePage {
   score: number = 0;
   selected: boolean = false;
 
-  constructor(public navCtrl?: NavController, public dataService?: Data, public nav?: NavController, public qapi?:qApi) {
+  constructor(public navCtrl?: NavController, public dataService?: Data, public nav?: NavController, public qapi?: qApi) {
 
 
     this.slideOptions = {
@@ -31,29 +32,35 @@ export class HomePage {
   }
 
   nextSlide() {
-    this.questions = this.qapi.q;
+    this.questions = this.qapi.question;
     this.questionCardFlipped = false;
     this.slides.slideNext();
-    console.log("Current index is", this.slides.getActiveIndex());
+    // console.log("Current index is", this.slides.getActiveIndex());
   }
 
   selectAnswer(answer, question) {
     this.questionCardFlipped = true;
-    this.score++;
-    console.log("Current index is", this.slides.getActiveIndex());
+    // console.log("Current index is", this.slides.getActiveIndex());
     this.hasAnswered = true;
     this.selected = true;
     this.questionCardFlipped = true;
 
-    if(answer.correct){
+    if (answer.correct) {
       this.score++;
     }
     setTimeout(() => {
       this.hasAnswered = false;
       this.slides.slideNext();
+      this.score++;
       this.selected = false;
       this.questionCardFlipped = false;
     }, 3000);
+  }
+
+  htmlDecode(input) {
+    let e = document.createElement('div');
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   }
 
   restartQuiz() {

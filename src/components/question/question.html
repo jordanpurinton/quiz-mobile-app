@@ -1,0 +1,21 @@
+<ion-slide *ngIf="submitValid">
+  <h3>Question 1</h3>
+  <question-card [isFlipped]="questionCardFlipped">
+    <div class="question-card-front">Test question?</div>
+    <div class="question-card-back">Correct answer!</div>
+  </question-card>
+  <ion-list no-lines radio-group>
+    <ion-item>
+      <ion-label>1. Test</ion-label>
+      <ion-radio (click)="selectAnswer()"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>2. Test 2</ion-label>
+      <ion-radio (click)="selectAnswer()"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>3. Test 3</ion-label>
+      <ion-radio (click)="selectAnswer()"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-slide>
