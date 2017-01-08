@@ -7,7 +7,10 @@
       <h3>Question {{i + 1}}</h3>
       <question-card [isFlipped]="questionCardFlipped">
         <div class="question-card-front">{{htmlDecode(question.question)}}</div>
-        <div class="question-card-back">{{htmlDecode(question.correct_answer)}}</div>
+        <div class="question-card-back">{{htmlDecode(question.correct_answer)}}
+          <div *ngIf="isCorrect" style="color: #2ec95c; zoom: 150%"><br><b>CORRECT!</b></div>
+          <div *ngIf="!isCorrect" style="color: #f53d3d; zoom: 150%"><br><b>WRONG!</b></div>
+        </div>
       </question-card>
       <ion-list no-lines radio-group>
         <ion-item *ngFor="let answer of question.incorrect_answers">

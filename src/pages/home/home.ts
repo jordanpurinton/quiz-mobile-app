@@ -21,12 +21,13 @@ export class HomePage {
   hasAnswered: boolean = false;
   score: number = 0;
   selected: boolean = false;
+  isCorrect: boolean = false;
 
   constructor(public navCtrl?: NavController, public dataService?: Data, public nav?: NavController, public qapi?: qApi) {
 
 
     this.slideOptions = {
-      onlyExternal: true
+      onlyExternal: true,
     };
     this.nav = nav;
 
@@ -44,15 +45,16 @@ export class HomePage {
     // console.log("Current index is", this.slides.getActiveIndex());
     this.hasAnswered = true;
     this.selected = true;
-    this.questionCardFlipped = true;
 
     if (answer == this.htmlDecode(question.correct_answer)) {
       this.score++;
+      this.isCorrect = true;
     }
     setTimeout(() => {
       this.hasAnswered = false;
-      this.slides.slideNext();
+      this.nextSlide();
       this.selected = false;
+      this.isCorrect = false;
       this.questionCardFlipped = false;
     }, 3000);
   }
