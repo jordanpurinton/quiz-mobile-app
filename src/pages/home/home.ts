@@ -3,6 +3,7 @@ import {NavController, Slides} from 'ionic-angular';
 import {Data} from '../../providers/data';
 import {FormBuilder} from "@angular/forms";
 import {qApi} from "../../providers/qapi";
+import {QuizInputComponent} from "../../components/quiz-input/quiz-input";
 export * from "../home/home"
 
 
@@ -45,13 +46,12 @@ export class HomePage {
     this.selected = true;
     this.questionCardFlipped = true;
 
-    if (answer.correct) {
+    if (answer == this.htmlDecode(question.correct_answer)) {
       this.score++;
     }
     setTimeout(() => {
       this.hasAnswered = false;
       this.slides.slideNext();
-      this.score++;
       this.selected = false;
       this.questionCardFlipped = false;
     }, 3000);

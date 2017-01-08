@@ -70,7 +70,6 @@ export class QuizInputComponent {
   onSubmit(data) {
     let keyValPairs = []; // used to query quiz API from input service
     this.formData = data; // grab data from input fields
-
     for (let key in data) {
       let value = data[key];
 
@@ -93,7 +92,6 @@ export class QuizInputComponent {
       this.quizService.getQuiz(keyValPairs) // send array to GET request in service
         .subscribe(
           data => {
-            console.log(this.isValid());
             this.questions = ''; // clear questions
             if (data.results != '') {
               console.log('before', data.results);
@@ -101,6 +99,7 @@ export class QuizInputComponent {
               this.questions = data.results;
               console.log('after', this.questions);
               this.homePage.nextSlide();
+              this.quizInputForm.reset();
             }
           },
           error => {
