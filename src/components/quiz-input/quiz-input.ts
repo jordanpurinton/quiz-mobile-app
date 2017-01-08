@@ -55,7 +55,6 @@ export class QuizInputComponent {
 
   isValid() {
     let data = this.formData;
-
     for (let key in data) {
       let value = data[key];
       if (!value) {
@@ -90,24 +89,26 @@ export class QuizInputComponent {
       }
 
     }
-
-    this.quizService.getQuiz(keyValPairs) // send array to GET request in service
-      .subscribe(
-        data => {
-          this.questions = ''; // clear questions
-          if (data.results != '') {
-            console.log('before', data.results);
-            this.qapi.setQ(data.results);
-            this.questions = data.results;
-            console.log('after', this.questions);
-            this.homePage.nextSlide();
+    if(this.isValid()) {
+      this.quizService.getQuiz(keyValPairs) // send array to GET request in service
+        .subscribe(
+          data => {
+            console.log(this.isValid());
+            this.questions = ''; // clear questions
+            if (data.results != '') {
+              console.log('before', data.results);
+              this.qapi.setQ(data.results);
+              this.questions = data.results;
+              console.log('after', this.questions);
+              this.homePage.nextSlide();
+            }
+          },
+          error => {
+            console.log('Something went wrong. Could not load trivia data.');
+            console.log(error);
           }
-        },
-        error => {
-          console.log('Something went wrong. Could not load trivia data.');
-          console.log(error);
-        }
-      );
+        );
+    }
   }
 
 
