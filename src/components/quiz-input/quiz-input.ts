@@ -4,6 +4,7 @@ import {HomePage} from "../../pages/home/home";
 import {CORE_DIRECTIVES, NgClass, FORM_DIRECTIVES, Control, ControlGroup} from 'angular2/common';
 import {QuizInputService} from "./quiz-input.service";
 import {Slides} from "ionic-angular";
+import {qApi} from "../../providers/qapi";
 
 @Component({
   selector: 'quiz-input',
@@ -22,7 +23,7 @@ export class QuizInputComponent {
   questions: any;
 
 
-  constructor(private builder: FormBuilder, public quizService: QuizInputService, public homePage: HomePage) {
+  constructor(private builder: FormBuilder, public quizService: QuizInputService, public homePage: HomePage, public qapi: qApi) {
     for (let i = 1; i < 11; i++) {
       this.questionNumbers.push(i);
     }
@@ -95,7 +96,8 @@ export class QuizInputComponent {
         data => {
           this.questions = ''; // clear questions
           if (data.results != '') {
-            // console.log('before', this.questions);
+            console.log('before', data.results);
+            this.qapi.setQ(data.results);
             this.questions = data.results;
             console.log('after', this.questions);
             this.homePage.nextSlide();

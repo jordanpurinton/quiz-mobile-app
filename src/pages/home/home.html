@@ -3,45 +3,16 @@
     <ion-slide>
       <quiz-input></quiz-input>
     </ion-slide>
-    <ion-slide>
+    <ion-slide *ngFor="let question of questions">
       <h3>Question {{score + 1}}</h3>
       <question-card [isFlipped]="questionCardFlipped">
-        <div class="question-card-front">Test question 1</div>
-        <div class="question-card-back">Correct answer!</div>
+        <div class="question-card-front">{{question.question}}</div>
+        <div class="question-card-back">{{question.correct_answer}}</div>
       </question-card>
       <ion-list no-lines radio-group>
-        <ion-item>
-          <ion-label>1. Test</ion-label>
-          <ion-radio (click)="selectAnswer()"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>2. Test 2</ion-label>
-          <ion-radio (click)="selectAnswer()"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>3. Test 3</ion-label>
-          <ion-radio (click)="selectAnswer()"></ion-radio>
-        </ion-item>
-      </ion-list>
-    </ion-slide>
-    <ion-slide>
-      <h3>Question {{score + 1}}</h3>
-      <question-card [isFlipped]="questionCardFlipped">
-        <div class="question-card-front">Test question 2</div>
-        <div class="question-card-back">Correct answer!</div>
-      </question-card>
-      <ion-list no-lines radio-group>
-        <ion-item>
-          <ion-label>1. Test</ion-label>
-          <ion-radio (click)="selectAnswer()"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>2. Test 2</ion-label>
-          <ion-radio (click)="selectAnswer()"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>3. Test 3</ion-label>
-          <ion-radio (click)="selectAnswer()"></ion-radio>
+        <ion-item *ngFor="let answer of question.incorrect_answers">
+          <ion-label>{{answer}}</ion-label>
+          <ion-radio (click)="selectAnswer(answer, question)" [checked]="answer.selected" [disabled]="hasAnswered"></ion-radio>
         </ion-item>
       </ion-list>
     </ion-slide>
