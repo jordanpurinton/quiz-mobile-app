@@ -28,7 +28,9 @@ export class QuizInputService {
       }
       else if (keyVal.includes('category')) {
         let value = keyVal.substring(27, keyVal.length - 2);
+        console.log('keyVal ', keyVal + ' value ' + value)
         apiQuery.push(value);
+        console.log(apiQuery)
       }
       else if (keyVal.includes('difficulty')) {
         let value = keyVal.substring(29, keyVal.length - 2);
@@ -45,18 +47,61 @@ export class QuizInputService {
 
       if (apiQuery[i] != "") {
 
+        // number of questions
         if (typeof apiQuery[i] == "number") {
           questionNum = apiQuery[i];
         }
 
+        // question category
+        else if (apiQuery[i] == "Any Category"){
+        }
+
+        else if (apiQuery[i] == "General Knowledge"){
+          category = "&category=9";
+        }
+
+        else if (apiQuery[i] == "Music"){
+          category = "&category=12";
+        }
+
+        else if (apiQuery[i] == "Television"){
+          category = "&category=14";
+        }
+
+        else if (apiQuery[i] == "Science & Nature"){
+          category = "&category=17";
+        }
+
+        else if (apiQuery[i] == "Sports"){
+          category = "&category=21";
+        }
+
+        else if (apiQuery[i] == "History"){
+          category = "&category=23";
+        }
+
+        else if (apiQuery[i] == "Politics"){
+          category = "&category=24";
+        }
+
+        else if (apiQuery[i] == "Art"){
+          category = "&category=25";
+        }
+
+        else if (apiQuery[i] == "Celebrities"){
+          category = "&category=26";
+        }
+
+        else if (apiQuery[i] == "Vehicles"){
+          category = "&category=28";
+        }
+
+        // question difficulty
         else if (apiQuery[i] == "Hard" || apiQuery[i] == "Medium" || apiQuery[i] == "Easy") {
           difficulty = "&difficulty=" + apiQuery[i].toLowerCase();
         }
 
-        // else if (apiQuery[i] == "category"){  WILL VISIT LATER
-        //   type = "&category=" + apiQuery[i].toLowerCase();
-        // }
-
+        // question type
         else if (apiQuery[i] == "Multiple Choice" || apiQuery[i] == "True/False") {
           if (apiQuery[i] == "Multiple Choice") {
             type = "&type=" + "multiple";
@@ -68,7 +113,7 @@ export class QuizInputService {
       }
     }
 
-    return this.http.get(APIURL + questionNum + difficulty + type)
+    return this.http.get(APIURL + questionNum + category + difficulty + type)
       .map((response: Response) => response.json())
   }
 }
