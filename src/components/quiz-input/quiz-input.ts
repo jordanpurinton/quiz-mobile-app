@@ -100,10 +100,10 @@ export class QuizInputComponent {
           data => {
             this.questions = ''; // clear questions
             if (data.results != '') {
-              console.log('before', data.results);
+              // console.log('before', data.results);
               this.qapi.setQ(data.results);
               this.questions = data.results;
-              console.log('after', this.questions);
+              // console.log('after', this.questions);
               this.homePage.nextSlide();
               this.quizInputForm.reset();
             }

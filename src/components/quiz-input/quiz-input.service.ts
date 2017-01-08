@@ -28,9 +28,7 @@ export class QuizInputService {
       }
       else if (keyVal.includes('category')) {
         let value = keyVal.substring(27, keyVal.length - 2);
-        console.log('keyVal ', keyVal + ' value ' + value)
         apiQuery.push(value);
-        console.log(apiQuery)
       }
       else if (keyVal.includes('difficulty')) {
         let value = keyVal.substring(29, keyVal.length - 2);
