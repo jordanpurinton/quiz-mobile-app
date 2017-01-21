@@ -106,14 +106,14 @@ export class QuizInputComponent {
               this.homePage.nextSlide();
               this.quizInputForm.reset();
             }
-            else {
-              let toast = this.toastControl.create({
-                message: 'Uh oh! Something went wrong. Please enter a different quiz input. (maybe try a more generic one?)',
-                duration: 7000,
-                position: 'top'
-              });
-              toast.present();
-            }
+            // else { // API response is null or user didn't enter quiz input correctly
+            //   let toast = this.toastControl.create({
+            //     message: 'Uh oh! Something went wrong. Please enter a different quiz input. (maybe try a more generic one?)',
+            //     duration: 7000,
+            //     position: 'top'
+            //   });
+            //   toast.present();
+            // }
           },
           error => {
             console.log('Something went wrong. Could not load trivia data.');
