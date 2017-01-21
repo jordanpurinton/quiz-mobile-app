@@ -3,7 +3,7 @@ import {FormGroup, FormBuilder} from "@angular/forms";
 import {HomePage} from "../../pages/home/home";
 import {CORE_DIRECTIVES, NgClass, FORM_DIRECTIVES, Control, ControlGroup} from 'angular2/common';
 import {QuizInputService} from "./quiz-input.service";
-import {Slides} from "ionic-angular";
+import {Slides, AlertController, ToastController} from "ionic-angular";
 import {qApi} from "../../providers/qapi";
 
 @Component({
@@ -23,7 +23,8 @@ export class QuizInputComponent {
   questions: any;
 
 
-  constructor(private builder: FormBuilder, public quizService: QuizInputService, public homePage: HomePage, public qapi: qApi) {
+  constructor(private builder: FormBuilder, public quizService: QuizInputService, public homePage: HomePage, public qapi: qApi,
+  public toastControl: ToastController) {
     for (let i = 1; i < 11; i++) {
       this.questionNumbers.push(i);
     }
@@ -104,6 +105,14 @@ export class QuizInputComponent {
               // console.log('after', this.questions);
               this.homePage.nextSlide();
               this.quizInputForm.reset();
+            }
+            else {
+              let toast = this.toastControl.create({
+                message: 'Uh oh! Something went wrong. Please enter a different quiz input. (maybe try a more generic one?)',
+                duration: 7000,
+                position: 'top'
+              });
+              toast.present();
             }
           },
           error => {
