@@ -66,14 +66,12 @@ export class QuizInputComponent {
       if (!value) {
         return false;
       }
-      else {
-      }
-
     }
     return true;
   }
 
   onSubmit(data) {
+
     let keyValPairs = []; // used to query quiz API from input service
     this.formData = data; // grab data from input fields
     for (let key in data) {

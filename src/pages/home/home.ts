@@ -4,6 +4,7 @@ import {Data} from '../../providers/data';
 import {FormBuilder} from "@angular/forms";
 import {qApi} from "../../providers/qapi";
 import {QuizInputComponent} from "../../components/quiz-input/quiz-input";
+import {isUndefined} from "ionic-angular/umd/util/util";
 export * from "../home/home"
 
 
@@ -34,7 +35,13 @@ export class HomePage {
   }
 
   nextSlide() {
+    let currentIndex = this.slides.getActiveIndex();
     this.questions = this.qapi.question;
+    if(typeof this.questions[currentIndex] != 'undefined') { // make sure we're not on last question
+      this.questions[currentIndex].incorrect_answers =           // hacky way of combining correct and incorrect answers and then shuffling them
+        this.questions[currentIndex].incorrect_answers.concat(this.questions[currentIndex].correct_answer);
+      this.shuffle(this.questions[currentIndex].incorrect_answers);
+    }
     this.questionCardFlipped = false;
     this.slides.slideNext();
     // console.log("Current index is", this.slides.getActiveIndex());
@@ -64,6 +71,16 @@ export class HomePage {
     e.innerHTML = input;
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   }
+
+  shuffle(a) {
+  var j, x, i;
+  for (i = a.length; i; i--) {
+    j = Math.floor(Math.random() * i);
+    x = a[i - 1];
+    a[i - 1] = a[j];
+    a[j] = x;
+  }
+}
 
   restartQuiz() {
     this.score = 0;

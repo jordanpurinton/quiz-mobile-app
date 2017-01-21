@@ -17,10 +17,6 @@
           <ion-label>{{htmlDecode(answer)}}</ion-label>
           <ion-radio (click)="selectAnswer(answer, question)" [checked]="answer.selected" [disabled]="hasAnswered"></ion-radio>
         </ion-item>
-        <ion-item>
-          <ion-label>{{htmlDecode(question.correct_answer)}}</ion-label>
-          <ion-radio (click)="selectAnswer(question.correct_answer, question)" [checked]="question.correct_answer.selected" [disabled]="hasAnswered"></ion-radio>
-        </ion-item>
       </ion-list>
     </ion-slide>
     <ion-slide>
