@@ -6,7 +6,7 @@ import {Injectable} from "@angular/core";
 @Injectable() // needed for http service
 export class QuizInputService {
 
-  constructor(private http: Http) {
+  constructor(public http: Http) {
   }
 
   getQuiz(data: any) {

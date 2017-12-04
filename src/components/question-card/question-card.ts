@@ -5,7 +5,7 @@ import {Slides} from "ionic-angular";
 
 @Component({
   selector: 'question-card',
-  templateUrl: 'question-card.html'
+  templateUrl: 'question-card.html',
 })
 export class QuestionCardComponent {
   @Input('isFlipped') flipCard: boolean;

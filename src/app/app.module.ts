@@ -1,4 +1,4 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { NgModule, ErrorHandler, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { QuizApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -7,6 +7,8 @@ import { Data } from '../providers/data';
 import {QuizInputComponent} from "../components/quiz-input/quiz-input";
 import {QuizInputService} from "../components/quiz-input/quiz-input.service";
 import {qApi} from "../providers/qapi";
+import {BrowserModule} from "@angular/platform-browser";
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -15,8 +17,11 @@ import {qApi} from "../providers/qapi";
     QuestionCardComponent,
     QuizInputComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   imports: [
-    IonicModule.forRoot(QuizApp)
+    IonicModule.forRoot(QuizApp),
+    BrowserModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

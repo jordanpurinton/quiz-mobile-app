@@ -9,25 +9,26 @@
     "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/compiler-cli": "2.2.1",
-    "@angular/core": "2.2.1",
-    "@angular/forms": "2.2.1",
-    "@angular/http": "2.2.1",
-    "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
-    "@angular/platform-server": "2.2.1",
-    "@ionic/storage": "1.1.6",
-    "ionic-angular": "2.0.0-rc.4",
-    "ionic-native": "2.2.11",
-    "ionicons": "3.0.0",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "0.6.26"
+    "@angular/common": "^4.4.3",
+    "@angular/compiler": "^4.4.3",
+    "@angular/compiler-cli": "^4.4.3",
+    "@angular/core": "^4.4.3",
+    "@angular/forms": "^4.4.3",
+    "@angular/http": "^4.4.3",
+    "@angular/platform-browser": "^4.4.3",
+    "@angular/platform-browser-dynamic": "^4.4.3",
+    "@angular/platform-server": "^4.4.3",
+    "@ionic/storage": "^2.1.3",
+    "ionic": "^3.19.0",
+    "ionic-angular": "^3.9.2",
+    "ionic-native": "^2.9.0",
+    "ionicons": "^3.0.0",
+    "rxjs": "^5.5.3",
+    "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "1.0.0",
-    "typescript": "2.0.9"
+    "@ionic/app-scripts": "^3.1.4",
+    "typescript": "^2.3.4"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
