@@ -5,7 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { QuestionCardComponent } from '../components/question-card/question-card';
 import { Data } from '../providers/data';
 import {QuizInputComponent} from "../components/quiz-input/quiz-input";
-import {QuizInputService} from "../components/quiz-input/quiz-input.service";
+import {QuizInputService} from "../providers/quiz-input.service";
 import {qApi} from "../providers/qapi";
 import {BrowserModule} from "@angular/platform-browser";
 import { HttpModule } from '@angular/http';

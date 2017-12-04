@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {FormGroup, FormBuilder} from "@angular/forms";
 import {HomePage} from "../../pages/home/home";
 import {CORE_DIRECTIVES, NgClass, FORM_DIRECTIVES, Control, ControlGroup} from 'angular2/common';
-import {QuizInputService} from "./quiz-input.service";
+import {QuizInputService} from "../../providers/quiz-input.service";
 import {Slides, AlertController, ToastController} from "ionic-angular";
 import {qApi} from "../../providers/qapi";
 
