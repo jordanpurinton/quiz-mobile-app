@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - ionic > lodash:
+        patched: '2020-05-01T07:34:52.811Z'
+    - ionic > @ionic/cli-framework > lodash:
+        patched: '2020-05-01T07:34:52.811Z'
+    - ionic > @ionic/cli-framework > @ionic/utils-process > lodash:
+        patched: '2020-05-01T07:34:52.811Z'
+    - ionic > @ionic/cli-framework > inquirer > lodash:
+        patched: '2020-05-01T07:34:52.811Z'
+    - ionic > @ionic/cli-framework > @ionic/utils-subprocess > @ionic/utils-process > lodash:
+        patched: '2020-05-01T07:34:52.811Z'
