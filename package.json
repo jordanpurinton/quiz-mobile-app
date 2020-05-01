@@ -6,7 +6,9 @@
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@angular/common": "^4.4.3",
@@ -24,7 +26,8 @@
     "ionic-native": "^2.9.0",
     "ionicons": "^3.0.0",
     "rxjs": "^5.5.3",
-    "zone.js": "^0.8.18"
+    "zone.js": "^0.8.18",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@ionic/app-scripts": "^3.1.4",
@@ -46,5 +49,6 @@
       "locator": "ios"
     }
   ],
-  "description": "quiz-mobile-app: An Ionic project"
+  "description": "quiz-mobile-app: An Ionic project",
+  "snyk": true
 }
